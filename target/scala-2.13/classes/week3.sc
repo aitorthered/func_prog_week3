@@ -27,5 +27,5 @@ class NonEmpty(elem: Int, left: IntSet, right: IntSet) extends IntSet {
     else if (x > elem) new NonEmpty(elem, left, right incl x)
     else this
 
-  override def toString = "{"+left+elem+right+"}"
+  override def toString = "{"+left+elem+right+
 }
