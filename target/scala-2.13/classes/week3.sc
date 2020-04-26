@@ -10,9 +10,9 @@ abstract class IntSet {
   def incl(x: Int): IntSet
 }
 
-class Empty extends IntSet {
+object Empty extends IntSet {
   def contains(x: Int): Boolean = false
-  def incl(x: Int): IntSet = new NonEmpty(x, new Empty, new Empty)
+  def incl(x: Int): IntSet = new NonEmpty(x, Empty, Empty)
   override def toString = "."
 }
 
@@ -27,5 +27,5 @@ class NonEmpty(elem: Int, left: IntSet, right: IntSet) extends IntSet {
     else if (x > elem) new NonEmpty(elem, left, right incl x)
     else this
 
-  override def toString = "{"+left+elem+right+
+  override def toString = "{"+left+elem+right+"}"
 }
